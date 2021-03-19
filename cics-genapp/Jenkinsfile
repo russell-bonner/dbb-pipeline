@@ -38,16 +38,16 @@ def hasBuildFiles = true
 def idzCodeReviewFlag = false
 def buildVerbose = ''
 
-@NonCPS
-String getArtifactoruUrl(String artiUrl) {
-    // UCD always add /artifactory
-    def exp =  /(.*)\\/artifactory?$/
-    def match = artiUrl =~ exp
-    if (match.find()) {
-        return match.group(1)
-    }
-    return artiUrl
-}
+// @NonCPS
+// String getArtifactoruUrl(String artiUrl) {
+//     // UCD always add /artifactory
+//     def exp =  /(.*)\\/artifactory?$/
+//     def match = artiUrl =~ exp
+//     if (match.find()) {
+//         return match.group(1)
+//     }
+//     return artiUrl
+// }
 
 
 pipeline {
