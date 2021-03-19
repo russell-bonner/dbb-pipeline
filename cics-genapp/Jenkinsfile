@@ -184,7 +184,7 @@ pipeline {
                             BUILD_OUTPUT_FOLDER = sh (script: "ls ${WORKSPACE}/BUILD-${BUILD_NUMBER}  | grep build | sort -u", returnStdout: true).trim()
                             dir("${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER}") {
                                 withCredentials([usernamePassword(credentialsId: artiCredentialsId, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                                    writeFile file: "${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactoy.properties", encoding: "ibm-1047",
+                                    writeFile file: "${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties", encoding: "ibm-1047",
                                        text:"""password=$PASSWORD
 username=$USERNAME
 Repository_type=artifactory
@@ -192,7 +192,7 @@ repository=${repositoryPath}
 url=${artiUrl}
                                       """
                                 }
-                                sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --artifactRepository ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactoy.properties"
+                                sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
                             }
                         }
                     }
