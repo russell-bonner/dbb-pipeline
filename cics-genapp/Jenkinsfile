@@ -38,16 +38,16 @@ def hasBuildFiles = true
 def idzCodeReviewFlag = false
 def buildVerbose = ''
 
-// @NonCPS
-// String getArtifactoruUrl(String artiUrl) {
-//     // UCD always add /artifactory
-//     def exp =  /(.*)\\/artifactory?$/
-//     def match = artiUrl =~ exp
-//     if (match.find()) {
-//         return match.group(1)
-//     }
-//     return artiUrl
-// }
+@NonCPS
+String getArtifactoruUrl(String artiUrl) {
+    // UCD always add /artifactory
+    def exp =  /(.*)\\/artifactory?$/
+    def match = artiUrl =~ exp
+    if (match.find()) {
+        return match.group(1)
+    }
+    return artiUrl
+}
 
 
 pipeline {
@@ -189,7 +189,7 @@ pipeline {
 EXTREPO.USERNAME=$USERNAME
 EXTREPO.REPOSITORY_TYPE=Artifactory
 EXTREPO.REPOSITORY=${repositoryPath}
-EXTREPO.URL=${artiUrl}
+EXTREPO.URL=${artiUrl}/repository
                                       """
                                 }
                                 sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
