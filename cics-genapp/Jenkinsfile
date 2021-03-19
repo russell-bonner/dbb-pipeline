@@ -185,14 +185,14 @@ pipeline {
                             dir("${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER}") {
                                 withCredentials([usernamePassword(credentialsId: artiCredentialsId, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                                     writeFile file: "${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties", encoding: "ibm-1047",
-                                       text:"""password=$PASSWORD
-username=$USERNAME
-Repository_type=artifactory
-repository=${repositoryPath}
-url=${artiUrl}
+                                       text:"""EXTREPO.PASSWORD=$PASSWORD
+EXTREPO.USERNAME=$USERNAME
+EXTREPO.REPOSITORY_TYPE=Artifactory
+EXTREPO.REPOSITORY=${repositoryPath}
+EXTREPO.URL=${artiUrl}
                                       """
                                 }
-                                sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
+                                sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} -zpv "v2" --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
                             }
                         }
                     }
