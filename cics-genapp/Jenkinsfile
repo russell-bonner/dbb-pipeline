@@ -189,7 +189,7 @@ pipeline {
 EXTREPO.USERNAME=$USERNAME
 EXTREPO.REPOSITORY_TYPE=Artifactory
 EXTREPO.REPOSITORY=${repositoryPath}
-EXTREPO.URL=${artiUrl}/repository
+EXTREPO.URL=${artiUrl}/artifactory
                                       """
                                 }
                                 sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
