@@ -22,12 +22,11 @@ def dbbCredentialOptions='-id ADMIN -pw ADMIN'
 // Artifactory
 def artiCredentialsId = 'artifactory_id'
 
-
 // UCD
-def ucdApplication = 'GenApp-Deploy'
-def ucdProcess = 'Deploy'
-def ucdComponent = 'GenAppComponent'
-def ucdEnv = 'Development'
+def ucdApplication = 'deploy-cics-genapp'
+def ucdProcess = 'deploy-cics-genapp-application'
+def ucdComponent = 'cics-genapp'
+def ucdEnv = 'Test'
 def ucdSite = 'UrbanCodeE2EPipeline'
 
 // Verbose
@@ -95,7 +94,7 @@ pipeline {
                                                    path:'cics-genapp/']]]
                                                 ],
                                                 submoduleCfg: [],
-                                                userRemoteConfigs: [[
+                                                userRemoteConfigs: [[credentialsId: 'zosuser_id',
                                                                      url: srcGitRepo,
                                                                      ]]])
                     }
