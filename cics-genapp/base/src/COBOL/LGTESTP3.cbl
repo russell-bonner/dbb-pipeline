@@ -18,7 +18,6 @@
       * Menu for House Policy Transactions                             *
       *                                                                *
       *                                                                *
-      *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. LGTESTP3.
