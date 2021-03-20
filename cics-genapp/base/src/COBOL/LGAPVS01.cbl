@@ -17,7 +17,7 @@
       *                                                                *
       * VSAM KSDS Policy record ADD                                    *
       *                                                                *
-      *                                                                *
+      *     *                                                          *
       *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
