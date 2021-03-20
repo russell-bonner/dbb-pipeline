@@ -37,7 +37,7 @@ def verbose = true
 // Private
 def hasBuildFiles = true
 def idzCodeReviewFlag = false
-def buildVerbose = true
+def buildVerbose = ''
 //def buildVerbose = ''
 
 //@NonCPS
