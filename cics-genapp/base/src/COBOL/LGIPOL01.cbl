@@ -18,7 +18,7 @@
       *   To obtain full details of an individual policy:              *
       *     Endowment, House or Motor                                  *
       *                                                                *
-      *                                                                *
+      *      *                                                         *
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. LGIPOL01.
