@@ -18,7 +18,6 @@
       * Menu for Motor Policy Transactions                             *
       *                                                                *
       *                                                                *
-      *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. LGTESTP1.
