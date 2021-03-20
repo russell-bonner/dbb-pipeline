@@ -18,7 +18,6 @@
       * Menu for Customer transactions                                 *
       *                                                                *
       *                                                                *
-      *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. LGTESTC1.
