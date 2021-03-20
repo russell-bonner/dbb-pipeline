@@ -31,7 +31,8 @@ def ucdEnv = 'Test'
 def ucdSite = 'UrbanCodeE2EPipeline'
 
 // Verbose
-def verbose = false
+def verbose = true
+//def verbose = false
 
 // Private
 def hasBuildFiles = true
