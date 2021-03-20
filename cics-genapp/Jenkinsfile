@@ -135,8 +135,8 @@ pipeline {
         stage('DBB Build') {
             steps {
                 script{
-                    def zUnitContents = []
-                    def cccFolder = null
+                    //def zUnitContents = []
+                    //def cccFolder = null
                     node( zOsAgentLabel ) {
                         if ( env.DBB_BUILD_EXTRA_OPTS != null ) {
                            dbbBuildExtraOpts = env.DBB_BUILD_EXTRA_OPTS
@@ -191,7 +191,7 @@ pipeline {
 EXTREPO.USERNAME=$USERNAME
 EXTREPO.REPOSITORY_TYPE=Artifactory
 EXTREPO.REPOSITORY=${repositoryPath}
-EXTREPO.URL=${artiUrl}/artifactory
+EXTREPO.URL=${artiUrl}
                                       """
                                 }
                                 sh "$dbbHome/bin/groovyz $dbbGroovyzOpts ${WORKSPACE}/dbb/Pipeline/CreateUCDComponentVersion/dbb-ucd-packaging.groovy --buztool ${ucdBuztool} --component ${ucdComponent} --workDir ${WORKSPACE}/BUILD-${BUILD_NUMBER}/${BUILD_OUTPUT_FOLDER} --prop ${WORKSPACE}/BUILD-${BUILD_NUMBER}/artifactory.properties"
