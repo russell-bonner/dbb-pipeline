@@ -38,16 +38,16 @@ def hasBuildFiles = true
 def idzCodeReviewFlag = false
 def buildVerbose = ''
 
-@NonCPS
-String getArtifactoruUrl(String artiUrl) {
-    // UCD always add /artifactory
-    def exp =  /(.*)\\/artifactory?$/
-    def match = artiUrl =~ exp
-    if (match.find()) {
-        return match.group(1)
-    }
-    return artiUrl
-}
+//@NonCPS
+//String getArtifactoruUrl(String artiUrl) {
+//    // UCD always add /artifactory
+//    def exp =  /(.*)\\/artifactory?$/
+//    def match = artiUrl =~ exp
+//   if (match.find()) {
+//        return match.group(1)
+//    }
+//    return artiUrl
+//}
 
 
 pipeline {
@@ -118,8 +118,9 @@ pipeline {
                               doGenerateSubmoduleConfigurations: false,
                               extensions: [
                                        [$class: 'SparseCheckoutPaths',  sparseCheckoutPaths:[
-                                          [$class:'SparseCheckoutPath', path:'Pipeline/CreateUCDComponentVersion/'],
-                                          [$class:'SparseCheckoutPath', path:'Pipeline/RunIDZCodeReview/']
+                                          // [$class:'SparseCheckoutPath', path:'Pipeline/CreateUCDComponentVersion/'],
+                                          [$class:'SparseCheckoutPath', path:'Pipeline/CreateUCDComponentVersion/']
+                                          // [$class:'SparseCheckoutPath', path:'Pipeline/RunIDZCodeReview/']
                                        ]]
                                     ],
                               submoduleCfg: [],
@@ -178,7 +179,8 @@ pipeline {
                 script {
                     node( zOsAgentLabel ) { 
                         if ( hasBuildFiles ) {
-                            def artiUrl = getArtifactoruUrl(env.ARTIFACTORY_URL)
+                            // def artiUrl = getArtifactoruUrl(env.ARTIFACTORY_URL)
+                            def artiUrl = env.ARTIFACTORY_URL
                             def repositoryPath = env.ARTIFACTORY_REPO_PATH
                             def ucdBuztool = env.UCD_BUZTOOL_PATH
                             BUILD_OUTPUT_FOLDER = sh (script: "ls ${WORKSPACE}/BUILD-${BUILD_NUMBER}  | grep build | sort -u", returnStdout: true).trim()
