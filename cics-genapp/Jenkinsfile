@@ -94,7 +94,8 @@ pipeline {
                                                 extensions: [
                                                 [$class: 'SparseCheckoutPaths',
                                                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', 
-                                                   path:'cics-genapp/']]]
+                                                   path:'/']]]
+                                                   // path:'cics-genapp/']]]
                                                 ],
                                                 submoduleCfg: [],
                                                 userRemoteConfigs: [[credentialsId: 'zosuser_id',
