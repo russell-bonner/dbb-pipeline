@@ -25,13 +25,11 @@ def artiCredentialsId = 'artifactory_id'
 
 
 // Verbose
-def verbose = true
-//def verbose = false
+def verbose = false
 
 // Private
 def hasBuildFiles = true
 def buildVerbose = ''
-//def buildVerbose = ''
 
 pipeline {
 
