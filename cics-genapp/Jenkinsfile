@@ -84,7 +84,7 @@ pipeline {
                     if ( env.UCD_BUZTOOL_PATH == null )
                         error("UCD_BUZTOOL_PATH is not defined !!!")
                     
-                    dir('cics-genapp') {
+                    dir('cics-genapp1') {
                         sh(script: 'rm -f .git/info/sparse-checkout', returnStdout: true)
                         srcGitRepo = scm.getUserRemoteConfigs()[0].getUrl()
                         srcGitBranch = scm.branches[0].name
@@ -94,8 +94,7 @@ pipeline {
                                                 extensions: [
                                                 [$class: 'SparseCheckoutPaths',
                                                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', 
-                                                   path:'/']]]
-                                                   // path:'cics-genapp/']]]
+                                                   path:'cics-genapp2/']]]
                                                 ],
                                                 submoduleCfg: [],
                                                 userRemoteConfigs: [[credentialsId: 'zosuser_id',
