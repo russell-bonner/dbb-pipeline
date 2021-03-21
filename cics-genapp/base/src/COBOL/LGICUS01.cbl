@@ -19,6 +19,8 @@
       *                                                                *
       * Customer Inquire Business logic                                *
       *                                                                *
+      *  01                                                            *
+      *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. LGICUS01.
