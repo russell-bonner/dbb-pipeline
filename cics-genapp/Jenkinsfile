@@ -1,5 +1,5 @@
 // Agent labels
-def zOsAgentLabel = env.ZOS_AGENT_LABEL ? env.ZOS_AGENT_LABEL : 'e2e-pipeline'
+def zOsAgentLabel = env.ZOS_AGENT_LABEL ? env.ZOS_AGENT_LABEL : 'mv51_agent'
 def linuxAgent = 'master'
 
 // GIT repositories
