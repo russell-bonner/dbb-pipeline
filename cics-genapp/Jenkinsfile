@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script{
                     node( zOsAgentLabel ) {
-                        sh "$git -v")
+                        sh "$git -v"
                     }
                 }
             }
