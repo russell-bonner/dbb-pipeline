@@ -19,7 +19,7 @@
       *                                                                *
       * Customer Inquire Business logic                                *
       *                                                                *
-      *  02                                                            *
+      *  03                                                            *
       *                                                                *
       ******************************************************************
        IDENTIFICATION DIVISION.
