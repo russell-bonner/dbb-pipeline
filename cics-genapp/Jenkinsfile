@@ -10,7 +10,7 @@ def zAppBuildGitBranch = 'development' // Some important issues are not yet merg
 def dbbGitRepo = 'https://github.com/IBM/dbb.git'
 def dbbGitBranch = 'master'
 
-// DBB
+// DBB 1
 def dbbHome=null
 def dbbUrl=null
 def dbbHlq=null
